@@ -1,0 +1,40 @@
+extends layout
+
+include mixins/_reviewCard
+
+include mixins/_reviewForm
+block style 
+    link(rel='stylesheet', href='../dist/style/game.css')
+    title= `${h.siteName}`
+    link(rel="stylesheet", href="../dist/style/review.css")
+    
+
+block content 
+    main 
+        .container 
+            .name   
+                p #{article.name}
+            .place
+                .image
+                    img(src=`../dist/ressources/${article.image}`)
+                .side
+                    .text   
+                        p #{article.description}
+                    .priceband
+                        .price
+                            h2 #{article.price}
+                        .button
+                            a(href=`/ajouterAuPanier/${article._id}`)
+                                input(type="submit", value="ajouter")
+                            
+            .other
+                .alldescrption
+                    h2 Taille : #{article.taille}
+                    h2 Console : #{article.console}
+                .reviews
+                    if user
+                        +reviewForm(article)
+                    else 
+                        a(href="/connexion") connectez vous pour commenter
+                    each review in reviews
+                        +reviewCard(review)

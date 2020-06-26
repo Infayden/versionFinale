@@ -1,0 +1,30 @@
+html
+    head
+        link(rel="stylesheet", href="../../dist/style/reset.css")
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+    body
+        block content
+            block messages
+                if locals.flashes
+                    .inner
+                        .flash-messages
+                            - const categories = Object.keys(locals.flashes)
+                            each category in categories
+                                each message in flashes[category]
+                                    .flash(class=`flash--${category}`)
+                                        p.flash__text!= message
+                                        button.flash__remove(onClick="this.parentElement.remove()") &times;
+            main
+                .logo
+                    a(href="/")
+                        img(src="../../dist/ressources/LOGO1.png")
+                .container           
+                    form.form(method="POST")
+                        .title
+                            h2 Nouveau mot de passe
+                        .reponse
+                            label(for="password") Nouveau mot de passe
+                            input(type="password" name="password")
+                            label(for="password-confirm") Confirmer le nouveau mot de passe
+                            input(type="password" name="password-confirm")
+                            input(type="submit" value="confirmer")

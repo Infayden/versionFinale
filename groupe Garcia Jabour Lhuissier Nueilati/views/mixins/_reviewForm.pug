@@ -1,0 +1,10 @@
+mixin reviewForm(article={})
+    form.reviewer(action=`/reviews/${article._id}` method="POST")
+        textarea(name="text" placeholder="Avez-vous déjà essayé ce jeu ? Laissez un commentaire ...")
+        .reviewmeta
+            .review_meta    
+                each num in [5,4,3,2,1]
+                    input(type="radio" required id=`star${num}` name="rating" value=num)
+                    label(for=`star${num}`) #{num} Stars
+            .connexion
+                input.button(type="submit" value="Publier le commentaire →")

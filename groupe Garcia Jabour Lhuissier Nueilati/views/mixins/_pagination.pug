@@ -1,0 +1,11 @@
+mixin pagination(page,pages,count,pageName)
+    .pagination
+        .pagination_precedant
+            if page > 1
+                a(href=`/${pageName}/page/${page - 1}`) Précedante
+        .pagination_texte
+            p Page #{page} de #{pages} - #{count} resultats
+        .pagination_suivant
+            if page < pages
+                a(href = `/${pageName}/page/${parseFloat(page) + 1}`) Suivante
+        

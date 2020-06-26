@@ -1,0 +1,14 @@
+mixin updateInfoForm()
+    
+    
+    form(action="/profile" method="POST")
+        .title
+            h2 Editez vos informations de facturation    
+        .reponse    
+            label(for="name") nom
+            input(type="text" name="name" value=`${user.name}`) 
+            label(for="fistName") Prenom
+            input(type="text" name="firstName" value=`${user.firstName || ''}`) 
+            label(for="adress") Adresse
+            input(type="text" name="address" value=`${user.address || ''}`)
+            input.button(type="submit" value="Log In →")

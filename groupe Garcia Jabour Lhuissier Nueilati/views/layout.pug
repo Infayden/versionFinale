@@ -1,0 +1,54 @@
+doctype html
+
+hmtl
+    head
+        title= `${h.siteName}`
+        link(rel='stylesheet', href='../../dist/style/layout.css')
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        block style
+    body
+        
+        block header
+            header  
+                a#logo(href='/')
+                    img(src='../../dist/ressources/LOGO1.png')
+                .under-head 
+                    .on-section
+                        .nav-bar
+                            .search
+                                input(type="search", Placeholder="chercher un jeu" name="search")
+                                Button
+                                    a(href="#") 🔍
+                                .search_results
+                        .connexion
+                            if !user
+                                a(href="/connexion")
+                                    input(type="submit", value="Connexion")
+                            else
+                                a(href='/deconnexion')
+                                    input(type="submit", value="déconnexion")
+                                a(href='/profile')
+                                    input(type="submit",value="Mon profil")
+                                a(href='/panier')
+                                    input(type="submit",value="Mon panier")               
+                    .header-section
+                        each item in h.menu
+                            .header-button
+                                .header-title
+                                    h2
+                                        a.nav__link(href=item.slug) #{item.title}
+                                
+            block messages
+                if locals.flashes
+                    .innerB
+                        .flash-messages
+                            - const categories = Object.keys(locals.flashes)
+                            each category in categories
+                                each message in flashes[category]
+                                    .flash(class=`flash--${category}`)
+                                        p.flash__text!= message
+                                        button.flash__remove(onClick="this.parentElement.remove()") &times;
+        block content                     
+                        
+        block scripts
+            script(type="text/javascript" src="../dist/App.bundle.js")

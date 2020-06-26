@@ -1,0 +1,37 @@
+head
+    title= `${h.siteName}`
+    link(rel='stylesheet', href='dist/style/layout.css')
+    link(rel="stylesheet", href="dist/style/connexion.css")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+body
+    block content
+        main
+            block messages
+                if locals.flashes
+                    .innerB
+                        .flash-messages
+                            - const categories = Object.keys(locals.flashes)
+                            each category in categories
+                                each message in flashes[category]
+                                    .flash(class=`flash--${category}`)
+                                        p.flash__text!= message
+                                        button.flash__remove(onClick="this.parentElement.remove()") &times;
+            .logo
+                a(href="/")
+                    img(src="dist/ressources/LOGO1.png")
+            .container
+                form(action="/inscription" method="POST")
+                    .title
+                        h2 Inscription
+                    .reponse
+                        label(for="nom") Nom
+                        input(type="text" name="name")
+                        label(for="email") Email
+                        input(type="email" name="email")
+                        label(for="password") Mot de passe
+                        input(type="password" name="password")
+                        label(for="password-confirm") Confirmation du mot de passe
+                        input(type="password" name="password-confirm")
+                        input(type="submit" value="Inscription")
+                p si tu as déjà un compte connecte toi 
+                    a(href="/connexion") ici

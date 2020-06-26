@@ -1,0 +1,10 @@
+mixin orderCard(order = {})
+    .contain
+        h2  Commande du #{order.orderDate}
+        span Référence de la commande : #{order._id}
+        .price
+            span Prix : #{order.cart.totalPrice}
+            span Nombre d'articles commandés : #{order.cart.totalQty}
+            span Adresse de facturation : #{order.address}
+
+

@@ -1,0 +1,42 @@
+include mixins/_myReviewCard
+head
+    link(rel="stylesheet", href="../dist/style/historique.css")
+    title= `${h.siteName}`
+    link(rel="stylesheet", href="../dist/style/layout.css")
+    link(rel="stylesheet", href="../dist/style/connexion.css")
+body
+    block header
+            header  
+                a(href='/')#logo
+                    img(src='../../dist/ressources/LOGO1.png')
+                .under-head 
+                    .on-section
+                        .nav-bar
+                        .connexion
+                            if !user
+                                a(href="/connexion")
+                                    input(type="submit", value="Connexion")
+                            else
+                                a(href='/deconnexion')
+                                    input(type="submit", value="déconnexion")
+                    .header-sectionB
+                        each item in h.profileMenu
+                            .header-button
+                                .header-title
+                                    h2
+                                        a.nav__link(href=item.slug) #{item.title}
+    block main
+        main
+            block messages
+                if locals.flashes
+                    .inner
+                        .flash-messages
+                            - const categories = Object.keys(locals.flashes)
+                            each category in categories
+                                each message in flashes[category]
+                                    .flash(class=`flash--${category}`)
+                                        p.flash__text!= message
+                                        button.flash__remove(onClick="this.parentElement.remove()") &times;
+            .inside
+                each review in myReviews
+                    +myReviewCard(review)

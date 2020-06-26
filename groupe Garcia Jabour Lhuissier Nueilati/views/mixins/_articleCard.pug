@@ -1,0 +1,10 @@
+mixin articleCard(article = {})
+  .cont 
+    .image
+      a(href=`/article${article.slug}`)
+        img(src=( `../../dist/ressources/${article.image} `|| `dist/ressources/${article.image}`))
+    .price
+      h2  #{article.name}
+      div 
+        a(href=`/ajouterAuPanier/${article._id}`) Ajouter #{article.price}
+

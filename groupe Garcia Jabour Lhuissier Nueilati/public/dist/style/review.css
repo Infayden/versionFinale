@@ -1,0 +1,27 @@
+.contain {
+    background-color: #0e013d;
+    color: white;
+    margin: 10px;
+    padding: 10px;
+}
+
+.authorinfo {
+    display: flex;
+    flex-direction: row;
+}
+
+.reviewinfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.reviewer {
+    background-color: #0e013d;
+    color: white;
+    resize: none;
+}
+
+.review_meta {
+    display: flex;
+    flex-direction: row;
+}

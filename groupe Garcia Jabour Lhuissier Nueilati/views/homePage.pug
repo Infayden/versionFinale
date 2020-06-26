@@ -1,0 +1,23 @@
+extends layout
+
+include mixins/_articleCard
+block style 
+    link(rel='stylesheet', href='../../dist/style/main.css')
+block content
+    main    
+        section.banner
+            video(autoplay muted loop)
+                source(src='dist/ressources/xbox.mp4', type="video/mp4")
+        .page   
+            .container
+                .band
+                    h2 Game of the year
+                .inband
+                    each article in articlesGOTY
+                        +articleCard(article)            
+block scripts
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.3/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.3/ScrollTrigger.min.js"></script>
+    <script src="dist/scroll.js"></script>
+    script(type="text/javascript" src="../dist/App.bundle.js")
+    

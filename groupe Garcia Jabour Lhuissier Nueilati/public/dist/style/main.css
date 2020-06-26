@@ -1,0 +1,202 @@
+.banner {
+  width: 100%;
+  overflow: hidden;
+  height: calc(100vh - 150px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.banner video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.banner .content {
+  position: relative;
+  z-index: 1;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.banner .content h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 4.5em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.banner .content p {
+  font-size: 1.5em;
+  color: #fff;
+}
+
+.page {
+  height: calc(100vh - 150px);
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inner {
+  background-color: #000;
+  color: white;
+}
+
+.error {
+  background-color: #000;
+  color: white;
+}
+
+.empty {
+  color: white;
+}
+
+.innerB p {
+  color: black;
+}
+
+.band {
+  height: 70px;
+  width: 100%;
+  background: #080227;
+  display: flex;
+  align-items: center;
+}
+
+.band h2 {
+  color: #fff;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.inband {
+  flex-wrap: wrap;
+  width: (100% - 100px);
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.cont {
+  height: 450px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  margin: 25px;
+  background: #232323;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.image {
+  position: relative;
+  top: -25%;
+  z-index: 9;
+  width: 100%;
+  height: 220px;
+  transition: 0.5s;
+}
+
+.cont:hover .image {
+  top: -50%;
+  transform: translateY(0%);
+}
+
+.cont .image img {
+  position: relative;
+  top: 50%;
+  width: 100%;
+}
+
+.cont .price {
+  position: relative;
+  bottom: -20%;
+  width: 100%;
+  height: 100;
+  text-align: center;
+  transition: 1s;
+  z-index: 9;
+}
+
+.cont:hover .price {
+  height: 210px;
+  transition-delay: 0.25;
+}
+
+.cont .price h2 {
+  position: relative;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #fff;
+}
+
+.cont .price a {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #fff;
+  border-radius: 4px;
+  margin-top: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 0.5s;
+  color: #000;
+}
+
+.cont:hover .price a {
+  opacity: 1;
+  transform: translateY(0px);
+  transition-delay: 0.25;
+}
+
+.pagination {
+  margin: 0 auto;
+  border: 1px blue;
+  width: 80vw;
+  padding: 1em;
+  display: flex;
+  flex-direction: row;
+  background-color: skyblue;
+}
+
+.pagination_texte {
+  color: #fff;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.pagination_precedant a {
+  border-right: 1px blue;
+  color: #fff;
+}
+
+.pagination_suivant a {
+  color: #fff;
+  float: left;
+}
+
+.search_results {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  .inband {
+    display: block;
+  }
+}

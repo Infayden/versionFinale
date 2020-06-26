@@ -1,0 +1,7 @@
+mixin myReviewCard(review)
+    .contain
+        .authorinfo
+            p a écrit le #{review.created}
+        .reviewinfo
+            p note : #{review.rating}/5
+            p #{review.text}

@@ -1,0 +1,36 @@
+extends layout
+
+block style 
+    link(rel="stylesheet", href="../dist/style/cart.css")
+block content
+    .band
+        h2 Panier 
+    if products.length
+        .listGrp
+            ul
+                each product in products
+                    .listGrpItem
+                        li
+                            .badge
+                                .item
+                                    img.ok(src = `../dist/ressources/${product.item.image}`)
+                                    strong #{product.item.name}
+                                .labelLabelSucess
+                                    span  #{product.item.price}€
+                                    span  #{product.qty}
+                                .btnGrp
+                                    button Action
+                                    .caret
+                                    span
+                                .dropdownMenu
+                                    ul
+                                        li
+                                            a( href =`/reduire/${product.item._id}`) enlever un
+                                        li 
+                                            a( href = `/retirer/${product.item._id}`) tout supprimer
+                strong Total : #{totalPrice}€
+                .connexion
+                    a(href="/cart/orderCheckout")
+                        input(type="submit",value="Passer au payement" id="center")
+    else
+        h2.empty Panier vide

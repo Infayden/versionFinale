@@ -1,0 +1,29 @@
+head
+    title= `${h.siteName}`
+    link(rel='stylesheet', href='dist/style/layout.css')
+    link(rel="stylesheet", href="dist/style/reset.css")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+body
+    block content
+        main
+            block messages
+                if locals.flashes
+                    .inner
+                        .flash-messages
+                            - const categories = Object.keys(locals.flashes)
+                            each category in categories
+                                each message in flashes[category]
+                                    .flash(class=`flash--${category}`)
+                                        p.flash__text!= message
+                                        button.flash__remove(onClick="this.parentElement.remove()") &times;
+            .logo
+                a(href="/")
+                    img(src="dist/ressources/LOGO1.png")
+            .container           
+                form.form(action="/forgot" method="POST")
+                    .title
+                        h2 Mot de passe oublié 
+                    .reponse
+                        label(for="email") Email
+                        input(type="email" name="email")
+                        input(type="submit" value="confirmer")

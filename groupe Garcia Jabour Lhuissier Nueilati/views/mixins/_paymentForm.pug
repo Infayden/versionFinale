@@ -1,0 +1,17 @@
+mixin paymentForm()
+    form(action="/cart/orderCheckout" method="POST")
+        .title
+            h2 Editez vos informations de facturation    
+        .reponse    
+            label(for="name") nom
+            input(type="text" name="name" value=`${user.name}`) 
+            label(for="prenom") Prenom
+            input(type="text" name="prenom" value=`${user.firstName || ''}`) 
+            label(for="address") Adresse
+            input(type="text" name="address" value=`${user.address || ''}`)
+            label(for="credit-card-number") Numero de carte de crédit
+            input(name="Ccn" type="tel" inputmode="numeric" pattern="[0-9\s]{16,19}" id="ccn" maxlength="16" placeholder="xxxx xxxx xxxx xxxx")
+            label(for="Ccv") CCV
+            input(name="Ccv" id="ccv" type="tel"  pattern="[0-9\s]{3,6}" inputmode="numeric" maxlength="3")
+
+            input.button(type="submit" value="Payer")

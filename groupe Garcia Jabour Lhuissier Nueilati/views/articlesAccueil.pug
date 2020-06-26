@@ -1,0 +1,14 @@
+extends layout
+
+include mixins/_articleCard
+
+include mixins/_pagination
+block style 
+    link(rel='stylesheet', href='../../dist/style/main.css')
+block content
+    .band
+        h2 Jeux #{pageName}
+    .inband
+        each article in articles
+            +articleCard(article)
+    +pagination(page,pages,count,pageName)

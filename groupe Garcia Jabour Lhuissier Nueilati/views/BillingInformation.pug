@@ -1,0 +1,25 @@
+include mixins/_paymentForm
+
+head
+    title= `${h.siteName}`
+    link(rel="stylesheet", href="../../dist/style/layout.css")
+    link(rel="stylesheet", href="../../dist/style/connexion.css")
+body
+    block main
+        main
+            block messages
+                if locals.flashes
+                    .innerB
+                        .flash-messages
+                            - const categories = Object.keys(locals.flashes)
+                            each category in categories
+                                each message in flashes[category]
+                                    .flash(class=`flash--${category}`)
+                                        p.flash__text!= message
+                                        button.flash__remove(onClick="this.parentElement.remove()") &times;
+            .logo
+                a(href='/')
+                    img(src="../../../dist/ressources/LOGO1.png", alt="logo")
+            .container
+                +paymentForm()
+

@@ -1,0 +1,114 @@
+html {
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+body {
+    position: absolute;
+}
+
+main {
+
+    height: 100%;
+    width: calc(100% - 100px);
+    background: url(dist/ressources/backgames.jpg);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container {
+
+    width: 1000px;
+    background: rgb(243, 243, 232);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.name {
+
+    margin-top: 30px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 62px;
+}
+
+.place {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+
+}
+
+.side {
+
+    display: inline-block;
+    justify-content: space-around;
+    height: 100%;
+    width: 400px;
+    background: rgb(192, 214, 240);
+
+}
+
+.text {
+
+    text-align: justify;
+    padding: 20px;
+    font-weight: 900;
+    font-size: 22px;
+
+}
+
+.priceband {
+
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    width: 100%;
+    height: 50px;
+    background: rgb(32, 6, 144);
+    color: #fff;
+    bottom: 0;
+}
+
+.priceband .button input[type="submit"] {
+
+    background: transparent;
+    position: relative;
+    padding: 15px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.other {
+
+    margin-top: 20px;
+    width: 90%;
+}
+
+.reviews {
+    height: 500px;
+    width: 90%;
+}
+
+.alldescription {
+
+    display: flex;
+    flex-direction: row;
+}
+
+.allbutton input {
+
+    background: transparent;
+    width: 100%;
+    color: #fff;
+    padding: 20px 15px;
+
+
+}
