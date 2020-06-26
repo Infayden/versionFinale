@@ -19,7 +19,7 @@
     "admin-bro": "^2.4.3",
     "admin-bro-expressjs": "^2.1.1",
     "admin-bro-mongoose": "^0.5.2",
-    "axios": "0.15.3",
+    "axios": "0.19.2",
     "body-parser": "1.17.1",
     "connect-flash": "0.1.1",
     "connect-mongo": "1.3.2",
